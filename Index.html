@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A lil gift :></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="ico.png">
+</head>
+
+<body>
+    <h1><img id="ClickTxt" src="click.png" alt=""></h1>
+    <div class="scene" onclick="slow()">
+        <div class="cube" style="transform: rotateY(45deg) ;">
+            <!--OUTSIDE-->
+
+            <div class="cube__face cube__face--front"><img src="gift.png"></div>
+            <div class="cube__face cube__face--back"><img src="gift.png"></div>
+            <div class="cube__face cube__face--right"><img src="gift2.png"></div>
+            <div class="cube__face cube__face--left"><img src="gift2.png"></div>
+            <div class="cube__face cube__face--bottom"><img src="gift2.png"></div>
+
+            <!--INSIDE-->
+
+            <div class="cube__face cube__face--frontins"><img src="inside.png"></div>
+            <div class="cube__face cube__face--backins"><img src="inside.png"></div>
+            <div class="cube__face cube__face--rightins"><img src="inside.png"></div>
+            <div class="cube__face cube__face--leftins"><img src="inside.png"></div>
+            <div class="cube__face cube__face--bottomins"><img src="inside2.png">
+            </div>
+
+            <!--BOX TOP-->
+
+            <div class="cube__faceShort ToBeHidden cube__face--frontsmall"><img src="giftShort.png"></div>
+            <div class="cube__faceShort ToBeHidden cube__face--backsmall"><img src="giftShort.png"></div>
+            <div class="cube__faceShort ToBeHidden cube__face--rightsmall"><img src="giftShort.png"></div>
+            <div class="cube__faceShort ToBeHidden cube__face--leftsmall"><img src="giftShort.png"></div>
+            <div class="cube__face ToBeHidden cube__face--topsmall"><img src="gift2.png"></div>
+            <div class="cube__face ToBeHidden cube__face--bow"><img src="bow.png"></div>
+
+        </div>
+    </div>
+
+    <h1 id="chrismas"><i> <i><span class="spannable s1">M</span><span class="spannable s2">e</span><span
+                    class="spannable s1">r</span><span class="spannable s2">r</span><span
+                    class="spannable s1">y</span><span class="spannable s2">
+                </span><span class="spannable s2">C</span><span class="spannable s1">h</span><span
+                    class="spannable s2">r</span><span class="spannable s1">i</span><span
+                    class="spannable s2">s</span><span class="spannable s1">t</span><span
+                    class="spannable s2">m</span><span class="spannable s1">a</span><span
+                    class="spannable s2">s</span><span class="spannable s1">
+                </span><span class="spannable s1">P</span><span class="spannable s2">o</span><span
+                    class="spannable s1">i</span><span class="spannable s2">s</span><span
+                    class="spannable s1">o</span><span class="spannable s2">n</span><span class="spannable s2">
+                </span><span class="spannable s1">:</span><span class="spannable s2">></span>
+            </i></i></h1>
+
+    <script>
+        var turn = document.querySelector(".cube");
+        var snd = new Audio("explosion1.ogg");
+        var snd2 = new Audio("Jingle Bells (Instrumental).ogg");
+        var setoff = false;
+        //fast();
+
+        function slow() {
+            if (!setoff) {
+                setoff = true;
+                var hide = document.getElementsByClassName("ToBeHidden")
+                document.getElementById("ClickTxt").style = "opacity: 0 "
+                snd.play()
+                turn.style = "animation: turn 7s linear 1;";
+                setTimeout(function () {
+                    Array.from(hide).forEach((el) => {
+                        // Do stuff here
+                        el.style = "display: none;"
+                    });
+                    turn.style = "animation: turndown 7s linear 1; transform: rotate3d(1, 0, 0, -90deg) translate(0, -90%);";
+                    setTimeout(function () {
+                        snd2.play()
+                        document.getElementById("chrismas").style = ("opacity: 1")
+                    }, 9000)
+                }, 7000)
+            }
+
+        }
+
+        setTimeout(doSomething, 700);
+
+        function doSomething() {
+            const red = document.getElementsByClassName("spannable")
+
+
+            Array.from(red).forEach((el) => {
+                // Do stuff here
+                if (el.className == "spannable s1") {
+                    el.className = "spannable s2"
+
+                } else {
+                    el.className = "spannable s1"
+
+                }
+
+            });
+
+            setTimeout(doSomething, 700);
+        }
+
+
+        //myLoop();
+    </script>
+
+</body>
+
+</html>
