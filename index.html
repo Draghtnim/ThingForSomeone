@@ -11,6 +11,10 @@
 
 <body>
     <h1><img id="ClickTxt" src="click.png" alt=""></h1>
+    <div class="flash" >
+        <img id="glow" src="Glow.png" alt="">
+        </div>
+
     <div class="scene" onclick="slow()">
         <div class="cube" style="transform: rotateY(45deg) ;">
             <!--OUTSIDE-->
@@ -58,6 +62,7 @@
 
     <script>
         var turn = document.querySelector(".cube");
+        var shine = document.getElementById("glow");
         var snd = new Audio("explosion1.ogg");
         var snd2 = new Audio("Jingle Bells (Instrumental).ogg");
         var setoff = false;
@@ -69,7 +74,8 @@
                 var hide = document.getElementsByClassName("ToBeHidden")
                 document.getElementById("ClickTxt").style = "opacity: 0 "
                 snd.play()
-                turn.style = "animation: turn 7s linear 1;";
+                turn.style =  "animation: turn 7s linear 1;";
+                shine.style = "animation: GlowShine 9s linear 1;";
                 setTimeout(function () {
                     Array.from(hide).forEach((el) => {
                         // Do stuff here
